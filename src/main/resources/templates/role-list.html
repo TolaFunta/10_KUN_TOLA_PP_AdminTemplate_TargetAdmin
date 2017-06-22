@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="">
+<title th:text="#{_ta_role_list}"></title>
+</head>
+<body>
+	<div class="container" layout:fragment="content">
+
+		<div class="content">
+
+			<div class="content-container">
+
+				<div class="content-header">
+					<h2 class="content-header-title ta-font-kh-header" th:text="#{_ta_role_list}"></h2>
+				</div>
+
+				<div class="row">
+
+					<div class="col-md-12">
+
+						<h4 class="heading ta-font-kh" th:text="#{_ta_role_list_info}">*Role Information</h4>
+
+						<table class="table table-bordered">
+							<thead>
+								<tr class="ta-font-kh">
+									<th th:text="#{_ta_no}">No.</th>
+									<th th:text="#{_ta_role_reg_name}">Role Name</th>
+									<th th:text="#{_ta_action}">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th>1</th>
+									<th>Administrator</th>
+									<th>
+										<button type="button" class="btn btn-sm btn-danger">
+											<i class="fa fa-trash-o"></i>
+										</button>
+										<button type="button" class="btn btn-sm btn-secondary">
+											<i class="fa fa-edit"></i>
+										</button>
+									</th>
+								</tr>
+								<tr>
+									<th>2</th>
+									<th>Manager</th>
+									<th>
+										<button type="button" class="btn btn-sm btn-danger">
+											<i class="fa fa-trash-o"></i>
+										</button>
+										<button type="button" class="btn btn-sm btn-secondary">
+											<i class="fa fa-edit"></i>
+										</button>
+									</th>
+								</tr>
+								<tr>
+									<th>3</th>
+									<th>Seller</th>
+									<th>
+										<button type="button" class="btn btn-sm btn-danger">
+											<i class="fa fa-trash-o"></i>
+										</button>
+										<button type="button" class="btn btn-sm btn-secondary">
+											<i class="fa fa-edit"></i>
+										</button>
+									</th>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+					<!-- /.col -->
+					
+				</div>
+				<!-- /.row -->
+
+
+				<br>
+
+
+			</div>
+			<!-- /.content-container -->
+
+		</div>
+		<!-- /.content -->
+
+	</div>
+	<!-- /.container -->
+
+</body>
+</html>

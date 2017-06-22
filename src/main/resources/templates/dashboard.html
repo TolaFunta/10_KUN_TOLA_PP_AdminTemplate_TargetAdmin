@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="">
+<title th:text="#{_ta_header_dashboard}"></title>
+</head>
+<body>
+	<div class="container" layout:fragment="content">
+
+		<div class="content">
+
+			<div class="content-container">
+
+				<div class="content-header">
+					<h2 class="content-header-title ta-font-kh-header" th:text="#{_ta_header_dashboard}"></h2>
+				</div>
+
+				<br>
+
+				<div class="row">
+
+					<div class="col-sm-6 col-md-6">
+						<div class="row-stat">
+							<p class="row-stat-label ta-font-kh" th:text="#{_ta_total_user_m}">Male Users</p>
+							<i class="fa fa-male ta-icon-size-big"></i>
+							<h3 class="row-stat-value">0 per.</h3>
+							<span class="label label-success row-stat-badge">0%</span>
+						</div>
+						<!-- /.row-stat -->
+					</div>
+					<!-- /.col -->
+
+					<div class="col-sm-6 col-md-6">
+						<div class="row-stat">
+							<p class="row-stat-label ta-font-kh" th:text="#{_ta_total_user_f}">Female Users</p>
+							<i class="fa fa-female ta-icon-size-big"></i>
+							<h3 class="row-stat-value">0 per.</h3>
+							<span class="label label-success row-stat-badge">0%</span>
+						</div>
+						<!-- /.row-stat -->
+					</div>
+					<!-- /.col -->
+
+					<div class="col-sm-6 col-md-6">
+						<div class="row-stat">
+							<p class="row-stat-label ta-font-kh" th:text="#{_ta_total_user}">Total Users</p>
+							<i class="fa fa-group ta-icon-size-big"></i>
+							<h3 class="row-stat-value">0 per.</h3>
+							<span class="label label-success row-stat-badge">0%</span>
+						</div>
+						<!-- /.row-stat -->
+					</div>
+					<!-- /.col -->
+
+					<div class="col-sm-6 col-md-6">
+						<div class="row-stat">
+							<p class="row-stat-label ta-font-kh" th:text="#{_ta_total_user_active}">Currently Active User</p>
+							<i class="fa fa-comments ta-icon-size-big"></i>
+							<h3 class="row-stat-value">0 per.</h3>
+							<span class="label label-danger row-stat-badge">0%</span>
+						</div>
+						<!-- /.row-stat -->
+					</div>
+					<!-- /.col -->
+
+				</div>
+				<!-- /.row -->
+
+			</div>
+			<!-- /.content-container -->
+
+		</div>
+		<!-- /.content -->
+
+	</div>
+	<!-- /.container -->
+
+</body>
+</html>

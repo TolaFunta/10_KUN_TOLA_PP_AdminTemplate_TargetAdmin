@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="">
+<title th:text="#{_ta_role_reg}"></title>
+</head>
+<body>
+	<div class="container" layout:fragment="content">
+
+		<div class="content">
+
+			<div class="content-container">
+
+				<div class="content-header">
+					<h2 class="content-header-title ta-font-kh-header"
+						th:text="#{_ta_role_reg}"></h2>
+				</div>
+
+				<div class="portlet">
+
+					<div class="portlet-header">
+
+						<h3>
+							<i class="fa fa-gear"></i> <b class="ta-font-kh"
+								th:text="#{_ta_role_reg_info}">Fill Role Information</b>
+						</h3>
+
+					</div>
+					<!-- /.portlet-header -->
+
+					<div class="portlet-content">
+
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="col-md-2 ta-font-kh"
+									th:text="#{_ta_role_reg_id}">Role ID: </label>
+
+								<div class="col-md-10">
+									<input type="text" class="form-control">
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-md-2 ta-font-kh"
+									th:text="#{_ta_role_reg_name}">Role Name: </label>
+
+								<div class="col-md-10">
+									<input type="text" class="form-control">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-md-10 col-md-offset-2">
+									<button type="button" class="btn btn-secondary ta-font-kh" th:text="#{_ta_button_save}">Save</button>
+								</div>
+							</div>
+
+						</form>
+
+					</div>
+					<!-- /.portlet-content -->
+
+				</div>
+
+			</div>
+			<!-- /.content-container -->
+
+		</div>
+		<!-- /.content -->
+
+	</div>
+	<!-- /.container -->
+
+</body>
+</html>

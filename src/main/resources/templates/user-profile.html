@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="">
+<title th:text="#{_ta_user_profile}"></title>
+</head>
+<body>
+	<div class="container" layout:fragment="content">
+
+		<div class="content">
+
+			<div class="content-container">
+
+				<div class="content-header">
+					<h2 class="content-header-title ta-font-kh-header" th:text="#{_ta_user_profile}"></h2>
+				</div>
+
+				<div class="row">
+
+					<div class="col-md-12">
+
+						<div class="row">
+
+							<div class="col-md-4 col-sm-5">
+
+								<div class="thumbnail">
+									<img th:src="@{/resources/img/my.jpg}"
+										alt="Profile Picture">
+								</div>
+								<!-- /.thumbnail -->
+
+							</div>
+							<!-- /.col -->
+
+
+							<div class="col-md-8 col-sm-7">
+
+								<h2>Kun Tola</h2>
+								<hr>
+
+								<ul class="icons-list">
+									<li><i class="icon-li fa fa-male"></i> Male</li>
+									<li><i class="icon-li fa fa-mobile-phone"></i> +855 947 841</li>
+									<li><i class="icon-li fa fa-envelope"></i>
+										kuntola883@gmail.com</li>
+								</ul>
+
+								<hr>
+
+								<p><i class="icon-li fa fa-map-marker"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+									Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
+									natoque penatibus et magnis dis parturient montes, nascetur
+									ridiculus mus. Donec quam felis, ultricies nec.</p>
+
+							</div>
+							<!-- /.col -->
+
+						</div>
+						<!-- /.row -->
+
+					</div>
+					<!-- /.col -->
+
+				</div>
+
+			</div>
+			<!-- /.content-container -->
+
+		</div>
+		<!-- /.content -->
+
+	</div>
+	<!-- /.container -->
+
+</body>
+</html>

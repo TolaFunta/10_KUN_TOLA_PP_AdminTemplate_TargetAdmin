@@ -1,0 +1,55 @@
+<div class="mainbar">
+
+	<div class="container">
+
+		<button type="button" class="btn mainbar-toggle"
+			data-toggle="collapse" data-target=".mainbar-collapse">
+			<i class="fa fa-bars"></i>
+		</button>
+
+		<div class="mainbar-collapse collapse">
+
+			<ul class="nav navbar-nav mainbar-nav">
+
+				<li th:class="${ACT_DASH}"><a th:href="@{/dashboard}"> <i
+						class="fa fa-dashboard"></i><b class="ta-font-kh" th:text="#{_ta_header_dashboard}">Dashboard</b>
+				</a></li>
+
+				<li class="dropdown" th:attrappend="class=' ' + ${ACT_USER}"><a href="#about" class="dropdown-toggle"
+					data-toggle="dropdown" data-hover="dropdown"> <i
+						class="fa fa-group"></i><b class="ta-font-kh" th:text="#{_ta_header_user}"> User Controls </b> <span class="caret"></span>
+				</a>
+
+					<ul class="dropdown-menu">
+						<li class="dropdown-header">Form User</li>
+						<li><a th:href="@{/user-cu}"><i
+								class="fa fa-plus nav-icon"></i><b class="ta-font-kh" th:text="#{_ta_user_reg}"> Add New User</b></a></li>
+						<li class="dropdown-header">Table User</li>
+						<li><a th:href="@{/user-list}"><i
+								class="fa fa-bars nav-icon"></i><b class="ta-font-kh" th:text="#{_ta_user_list}"> View User Lists</b></a></li>
+					</ul></li>
+
+				<li class="dropdown" th:attrappend="class=' ' + ${ACT_ROLE}"><a href="javascript:;"
+					class="dropdown-toggle" data-toggle="dropdown"
+					data-hover="dropdown"> <i class="fa fa-cogs"></i><b class="ta-font-kh" th:text="#{_ta_header_role}"> Role Controls </b>
+						<span class="caret"></span>
+				</a>
+
+					<ul class="dropdown-menu">
+						<li class="dropdown-header">Form Role</li>
+						<li><a th:href="@{/role-cu}"><i
+								class="fa fa-plus nav-icon"></i><b class="ta-font-kh" th:text="#{_ta_role_reg}"> Add New Role</b></a></li>
+						<li class="dropdown-header">Table Role</li>
+						<li><a th:href="@{/role-list}"><i
+								class="fa fa-bars nav-icon"></i><b class="ta-font-kh" th:text="#{_ta_role_list}"> View Role Lists</b></a></li>
+					</ul></li>
+
+			</ul>
+
+		</div>
+		<!-- /.navbar-collapse -->
+
+	</div>
+	<!-- /.container -->
+
+</div>
