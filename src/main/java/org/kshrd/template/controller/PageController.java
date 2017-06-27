@@ -1,37 +1,29 @@
 package org.kshrd.template.controller;
 
+import org.kshrd.template.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping({"/", "/home", "/admin"})
 public class PageController {
-	@RequestMapping({"/", "/home", "/dashboard"})
+	private UserService userService;
+
+	@Autowired
+	public PageController(UserService userService) {
+		this.userService = userService;
+	}
+
+	@RequestMapping({"/", "/dashboard"})
 	public String dashBoard(Model model) {
 		model.addAttribute("LINK", "/dashboard");
 		model.addAttribute("ACT_DASH", "active");
+		model.addAttribute("MALE_TOTAL", userService.countTotal("m"));
+		model.addAttribute("FEMALE_TOTAL", userService.countTotal("f"));
+		model.addAttribute("TOTAL", userService.countTotal("%"));
 		return "dashboard";
-	}
-	
-	@RequestMapping({"/user-cu"})
-	public String userCU(Model model) {
-		model.addAttribute("LINK", "/user-cu");
-		model.addAttribute("ACT_USER", "active");
-		return "user-cu";
-	}
-	
-	@RequestMapping({"/user-list"})
-	public String userList(Model model) {
-		model.addAttribute("LINK", "/user-list");
-		model.addAttribute("ACT_USER", "active");
-		return "user-list";
-	}
-
-	@RequestMapping({"/user-profile"})
-	public String userProfile(Model model) {
-		model.addAttribute("LINK", "/user-profile");
-		model.addAttribute("ACT_USER", "active");
-		return "user-profile";
 	}
 	
 	@RequestMapping({"/role-cu"})

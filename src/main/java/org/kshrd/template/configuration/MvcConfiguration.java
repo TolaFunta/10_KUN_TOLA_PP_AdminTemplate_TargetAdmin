@@ -2,10 +2,16 @@ package org.kshrd.template.configuration;
 
 import java.util.Locale;
 
+import javax.sql.DataSource;
+
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -17,32 +23,35 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 
 @Configuration
 @EnableWebMvc
+@MapperScan("org.kshrd.template.repositories")
 public class MvcConfiguration extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		/*
-		 *  Map a view controller to the given URL path (or pattern) in other 
-		 *  to render a response with a pre-configured status code and view.
+		 * Map a view controller to the given URL path (or pattern) in other to
+		 * render a response with a pre-configured status code and view.
 		 */
-		//registry.addViewController("/yes").setViewName("/home");
-		
-		/*
-		 * Map a simple controller to the given URL path (or pattern) in order to
-		 * set the response status to the given code without rendering a body.
-		 */
-		//registry.addStatusController("/status", HttpStatus.BAD_REQUEST);
-		
-		/*
-		 * Map a view controller to the given URL path (or pattern) in other 
-		 * to redirect to another URL.
-		 */
-		//registry.addRedirectViewController("to-home", "/home");
+		// registry.addViewController("/yes").setViewName("/home");
 
-		
-		/*registry.addViewController("/user").setViewName("/user");
-		registry.addViewController("/contact").setViewName("/contact");
-		registry.addViewController("/about").setViewName("/about");*/
+		/*
+		 * Map a simple controller to the given URL path (or pattern) in order
+		 * to set the response status to the given code without rendering a
+		 * body.
+		 */
+		// registry.addStatusController("/status", HttpStatus.BAD_REQUEST);
+
+		/*
+		 * Map a view controller to the given URL path (or pattern) in other to
+		 * redirect to another URL.
+		 */
+		// registry.addRedirectViewController("to-home", "/home");
+
+		/*
+		 * registry.addViewController("/user").setViewName("/user");
+		 * registry.addViewController("/contact").setViewName("/contact");
+		 * registry.addViewController("/about").setViewName("/about");
+		 */
 
 	}
 
@@ -51,21 +60,17 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 		/*
 		 * Static Resources store in the project
 		 */
-		registry.addResourceHandler("/resources/**")
-					.addResourceLocations("classpath:/static/");
+		registry.addResourceHandler("/resources/**").addResourceLocations("classpath:/static/");
 		/*
 		 * Static Resources store outside the project
 		 */
-		registry.addResourceHandler("/files/**")
-					.addResourceLocations("file:/opt/FILES_MANAGEMENT/images/");
+		registry.addResourceHandler("/files/**").addResourceLocations("file:/opt/FILES_MANAGEMENT/images/");
 	}
 
-	
-	
 	/*
 	 * Internalization i18n
 	 */
-	
+
 	/*
 	 * In order for our application to be able to determine which locale is
 	 * currently being used, we need to add a LocaleResolver bean:
@@ -113,6 +118,25 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 		messageSource.setUseCodeAsDefaultMessage(true);
 		messageSource.setDefaultEncoding("UTF-8");
 		return messageSource;
+	}
+
+	private DataSource dataSource;
+	
+	@Autowired
+	public MvcConfiguration(DataSource dataSource){
+		this.dataSource = dataSource;
+	}
+	
+	@Bean
+	public DataSourceTransactionManager transactionManager() {
+		return new DataSourceTransactionManager(dataSource);
+	}
+
+	@Bean
+	public SqlSessionFactoryBean sqlSessionFactoryBean() throws Exception {
+		SqlSessionFactoryBean sessionFactoryBean = new SqlSessionFactoryBean();
+		sessionFactoryBean.setDataSource(dataSource);
+		return sessionFactoryBean;
 	}
 
 }

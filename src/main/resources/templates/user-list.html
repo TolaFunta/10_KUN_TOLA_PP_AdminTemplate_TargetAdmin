@@ -15,18 +15,20 @@
 			<div class="content-container">
 
 				<div class="content-header">
-					<h2 class="content-header-title ta-font-kh-header" th:text="#{_ta_user_list}"></h2>
+					<h2 class="content-header-title ta-font-kh-header"
+						th:text="#{_ta_user_list}"></h2>
 				</div>
 
 				<div class="row">
 
 					<div class="col-md-12">
 
-						<h4 class="heading ta-font-kh" th:text="#{_ta_user_list_info}">*User Information</h4>
+						<h4 class="heading ta-font-kh" th:text="#{_ta_user_list_info}">*User
+							Information</h4>
 
 						<table class="table table-bordered">
 							<thead>
-								<tr class="ta-font-kh">
+								<tr class="ta-font-kh ta-th">
 									<th th:text="#{_ta_no}">No.</th>
 									<th th:text="#{_ta_user_reg_name}">User Name</th>
 									<th th:text="#{_ta_user_reg_email}">Email</th>
@@ -37,102 +39,33 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<th>1</th>
-									<th>Kun Tola</th>
-									<th>kuntola883@gmail.com</th>
-									<th>Male</th>
-									<th>+855 947 841</th>
-									<td><span class="label label-success">YES</span></td>
-									<th>
-										<a th:href="@{/user-profile}" class="btn btn-sm btn-success">
-											<i class="fa fa-info"></i>
-										</a>
-										<a href="#" class="btn btn-sm btn-danger">
-											<i class="fa fa-trash-o"></i>
-										</a>
-										<a href="#" class="btn btn-sm btn-secondary">
-											<i class="fa fa-edit"></i>
-										</a>
-									</th>
+								<tr th:each="user : ${USERS}">
+									<td th:text="${user.id}">1
+									</td>
+									<td th:text="${user.username}">Kun Tola
+									</td>
+									<td th:text="${user.email}">kuntola883@gmail.com
+									</td>
+									<td th:text="${user.gender}=='m'?'Male':'Female'">Male
+									</td>
+									<td th:text="${user.phonenumber}">+855 947 841
+									</td>
+									<td class="ta-center-col"><span class="label label-"
+										th:attrappend="class=${user.status}=='y'?'success':'danger'"
+										th:text="${user.status}=='y'?'Yes':'No'">YES</span></td>
+									<td class="ta-center-col"><a title="Detail"
+										th:href="@{/user/user-profile/{user_hash}(user_hash=${user.user_hash})}"
+										class="btn btn-sm btn-success"> <i class="fa fa-info"></i>
+									</a> <a title="Delete" onclick="return confirm('Are you sure you want to delete this item?');"
+										th:href="@{/user/delete/{user_hash}(user_hash=${user.user_hash})}"
+										class="btn btn-sm btn-danger"> <i class="fa fa-trash-o"></i>
+									</a> <a title="Update"
+										th:href="@{/user/update/{user_hash}(user_hash=${user.user_hash})}"
+										class="btn btn-sm btn-secondary"> <i class="fa fa-edit"></i>
+									</a>
+									</td>
 								</tr>
-								<tr>
-									<th>2</th>
-									<th>Dara</th>
-									<th>dara@gmail.com</th>
-									<th>Male</th>
-									<th>+855 947 841</th>
-									<td><span class="label label-success">YES</span></td>
-									<th>
-										<a th:href="@{/user-profile}" class="btn btn-sm btn-success">
-											<i class="fa fa-info"></i>
-										</a>
-										<a href="#" class="btn btn-sm btn-danger">
-											<i class="fa fa-trash-o"></i>
-										</a>
-										<a href="#" class="btn btn-sm btn-secondary">
-											<i class="fa fa-edit"></i>
-										</a>
-									</th>
-								</tr>
-								<tr>
-									<th>3</th>
-									<th>SreyOun</th>
-									<th>sreyout@yahoo.com</th>
-									<th>Female</th>
-									<th>+855 947 841</th>
-									<td><span class="label label-danger">NO</span></td>
-									<th>
-										<a th:href="@{/user-profile}" class="btn btn-sm btn-success">
-											<i class="fa fa-info"></i>
-										</a>
-										<a href="#" class="btn btn-sm btn-danger">
-											<i class="fa fa-trash-o"></i>
-										</a>
-										<a href="#" class="btn btn-sm btn-secondary">
-											<i class="fa fa-edit"></i>
-										</a>
-									</th>
-								</tr>
-								<tr>
-									<th>4</th>
-									<th>Chantha</th>
-									<th>chantha@gmail.com</th>
-									<th>Female</th>
-									<th>+855 947 841</th>
-									<td><span class="label label-success">YES</span></td>
-									<th>
-										<a th:href="@{/user-profile}" class="btn btn-sm btn-success">
-											<i class="fa fa-info"></i>
-										</a>
-										<a href="#" class="btn btn-sm btn-danger">
-											<i class="fa fa-trash-o"></i>
-										</a>
-										<a href="#" class="btn btn-sm btn-secondary">
-											<i class="fa fa-edit"></i>
-										</a>
-									</th>
-								</tr>
-								<tr>
-									<th>5</th>
-									<th>Reaksmey</th>
-									<th>reaksmey@yahoo.com</th>
-									<th>Female</th>
-									<th>+855 947 841</th>
-									<td><span class="label label-success">YES</span></td>
-									<th>
-										<a th:href="@{/user-profile}" class="btn btn-sm btn-success">
-											<i class="fa fa-info"></i>
-										</a>
-										<a href="#" class="btn btn-sm btn-danger">
-											<i class="fa fa-trash-o"></i>
-										</a>
-										<a href="#" class="btn btn-sm btn-secondary">
-											<i class="fa fa-edit"></i>
-										</a>
-									</th>
-								</tr>
-								
+
 							</tbody>
 						</table>
 

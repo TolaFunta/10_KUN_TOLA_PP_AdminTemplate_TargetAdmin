@@ -8,3 +8,9 @@
 .ta-font-kh-header {
 	font-family: 'Khmer OS Muol', 'Bokor';
 }
+.ta-center-col {
+	text-align: center !important;
+}
+tr.ta-th th {
+	font-size: 1em !important;
+}

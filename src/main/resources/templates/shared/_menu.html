@@ -11,7 +11,7 @@
 
 			<ul class="nav navbar-nav mainbar-nav">
 
-				<li th:class="${ACT_DASH}"><a th:href="@{/dashboard}"> <i
+				<li th:class="${ACT_DASH}"><a th:href="@{/admin/dashboard}"> <i
 						class="fa fa-dashboard"></i><b class="ta-font-kh" th:text="#{_ta_header_dashboard}">Dashboard</b>
 				</a></li>
 
@@ -22,10 +22,10 @@
 
 					<ul class="dropdown-menu">
 						<li class="dropdown-header">Form User</li>
-						<li><a th:href="@{/user-cu}"><i
+						<li><a th:href="@{/user/user-cu}"><i
 								class="fa fa-plus nav-icon"></i><b class="ta-font-kh" th:text="#{_ta_user_reg}"> Add New User</b></a></li>
 						<li class="dropdown-header">Table User</li>
-						<li><a th:href="@{/user-list}"><i
+						<li><a th:href="@{/user/user-list}"><i
 								class="fa fa-bars nav-icon"></i><b class="ta-font-kh" th:text="#{_ta_user_list}"> View User Lists</b></a></li>
 					</ul></li>
 
@@ -37,10 +37,10 @@
 
 					<ul class="dropdown-menu">
 						<li class="dropdown-header">Form Role</li>
-						<li><a th:href="@{/role-cu}"><i
+						<li><a th:href="@{/admin/role-cu}"><i
 								class="fa fa-plus nav-icon"></i><b class="ta-font-kh" th:text="#{_ta_role_reg}"> Add New Role</b></a></li>
 						<li class="dropdown-header">Table Role</li>
-						<li><a th:href="@{/role-list}"><i
+						<li><a th:href="@{/admin/role-list}"><i
 								class="fa fa-bars nav-icon"></i><b class="ta-font-kh" th:text="#{_ta_role_list}"> View Role Lists</b></a></li>
 					</ul></li>
 

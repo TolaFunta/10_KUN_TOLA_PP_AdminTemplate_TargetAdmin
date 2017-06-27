@@ -15,7 +15,8 @@
 			<div class="content-container">
 
 				<div class="content-header">
-					<h2 class="content-header-title ta-font-kh-header" th:text="#{_ta_user_profile}"></h2>
+					<h2 class="content-header-title ta-font-kh-header"
+						th:text="#{_ta_user_profile}"></h2>
 				</div>
 
 				<div class="row">
@@ -27,8 +28,7 @@
 							<div class="col-md-4 col-sm-5">
 
 								<div class="thumbnail">
-									<img th:src="@{/resources/img/my.jpg}"
-										alt="Profile Picture">
+									<img th:src="@{/resources/img/my.jpg}" alt="Profile Picture">
 								</div>
 								<!-- /.thumbnail -->
 
@@ -36,24 +36,36 @@
 							<!-- /.col -->
 
 
-							<div class="col-md-8 col-sm-7">
+							<div th:object="${USER}" class="col-md-8 col-sm-7">
 
-								<h2>Kun Tola</h2>
+								<h2 th:text="*{username}" style="text-transform: uppercase;">Kun
+									Tola</h2>
 								<hr>
 
 								<ul class="icons-list">
-									<li><i class="icon-li fa fa-male"></i> Male</li>
-									<li><i class="icon-li fa fa-mobile-phone"></i> +855 947 841</li>
-									<li><i class="icon-li fa fa-envelope"></i>
-										kuntola883@gmail.com</li>
+									<li><i class="icon-li fa fa-"
+										th:attrappend="class=*{gender}!='f'?'male':'female'"></i><b
+										th:text="*{gender}!='f'?'Male':'Female'"> Male</b></li>
+									<li><i class="icon-li fa fa-mobile-phone"></i><b
+										th:text="*{phonenumber}"> +855 947 841</b></li>
+									<li><i class="icon-li fa fa-envelope"></i><b
+										th:text="*{email}"> kuntola883@gmail.com</b></li>
+									<li><i class="icon-li fa fa-"
+										th:attrappend="class=*{status}=='y'?'unlock':'lock'"></i><b
+										th:text="*{status}=='y'?'Yes':'No'"> Yes</b> [Status]</li>
+									<li><i class="icon-li fa fa-clock-o"></i><b
+										th:text="*{created_date}"> 2017-06-23</b> [Registered]</li>
 								</ul>
 
 								<hr>
 
-								<p><i class="icon-li fa fa-map-marker"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-									Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-									natoque penatibus et magnis dis parturient montes, nascetur
-									ridiculus mus. Donec quam felis, ultricies nec.</p>
+								<p>
+									<i class="icon-li fa fa-map-marker"></i> Lorem ipsum dolor sit
+									amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+									dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
+									parturient montes, nascetur ridiculus mus. Donec quam felis,
+									ultricies nec.
+								</p>
 
 							</div>
 							<!-- /.col -->

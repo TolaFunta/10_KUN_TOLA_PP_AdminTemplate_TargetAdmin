@@ -26,8 +26,8 @@
 						<div class="row-stat">
 							<p class="row-stat-label ta-font-kh" th:text="#{_ta_total_user_m}">Male Users</p>
 							<i class="fa fa-male ta-icon-size-big"></i>
-							<h3 class="row-stat-value">0 per.</h3>
-							<span class="label label-success row-stat-badge">0%</span>
+							<h3 class="row-stat-value ta-font-kh" th:text="${MALE_TOTAL} + ' ' + #{_ta_user}">0 per.</h3>
+							<span class="label label-success row-stat-badge" th:text="(${MALE_TOTAL}/${TOTAL})*100 + ' %'">0%</span>
 						</div>
 						<!-- /.row-stat -->
 					</div>
@@ -37,33 +37,32 @@
 						<div class="row-stat">
 							<p class="row-stat-label ta-font-kh" th:text="#{_ta_total_user_f}">Female Users</p>
 							<i class="fa fa-female ta-icon-size-big"></i>
-							<h3 class="row-stat-value">0 per.</h3>
-							<span class="label label-success row-stat-badge">0%</span>
+							<h3 class="row-stat-value ta-font-kh" th:text="${FEMALE_TOTAL} + ' ' + #{_ta_user}">0 per.</h3>
+							<span class="label label-success row-stat-badge" th:text="(${FEMALE_TOTAL}/${TOTAL})*100 + ' %'">0%</span>
 						</div>
 						<!-- /.row-stat -->
 					</div>
 					<!-- /.col -->
 
-					<div class="col-sm-6 col-md-6">
+					<div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
 						<div class="row-stat">
 							<p class="row-stat-label ta-font-kh" th:text="#{_ta_total_user}">Total Users</p>
 							<i class="fa fa-group ta-icon-size-big"></i>
-							<h3 class="row-stat-value">0 per.</h3>
-							<span class="label label-success row-stat-badge">0%</span>
+							<h3 class="row-stat-value ta-font-kh" th:text="${TOTAL} + ' ' + #{_ta_user}">0 per.</h3>
+							<span class="label label-success row-stat-badge" th:text="(${TOTAL}/${TOTAL})*100 + ' %'">0%</span>
 						</div>
 						<!-- /.row-stat -->
 					</div>
 					<!-- /.col -->
 
-					<div class="col-sm-6 col-md-6">
+					<!-- <div class="col-sm-6 col-md-6">
 						<div class="row-stat">
 							<p class="row-stat-label ta-font-kh" th:text="#{_ta_total_user_active}">Currently Active User</p>
 							<i class="fa fa-comments ta-icon-size-big"></i>
 							<h3 class="row-stat-value">0 per.</h3>
 							<span class="label label-danger row-stat-badge">0%</span>
 						</div>
-						<!-- /.row-stat -->
-					</div>
+					</div> -->
 					<!-- /.col -->
 
 				</div>
